@@ -145,7 +145,7 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
       success.hidden = false;
       success.textContent = emailed
         ? "C'est envoyé. Le message part par e-mail à wisdomkonou2020@gmail.com, et WhatsApp s'ouvre avec le même texte pour le téléphone."
-        : "L'e-mail n'a pas pu partir. WhatsApp s'ouvre : envoyez le message pour qu'il arrive au 07 80 80 76 62.";
+        : "L'e-mail n'a pas pu partir. WhatsApp s'ouvre : envoyez le message pour qu'il arrive au +33 7 80 80 76 62.";
     }
     window.open(wa, "_blank", "noopener");
     if (button) button.disabled = false;

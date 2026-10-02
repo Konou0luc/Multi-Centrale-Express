@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://multi-centrale-express.vercel.app/sitemap.xml

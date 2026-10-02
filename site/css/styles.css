@@ -708,6 +708,9 @@ body.home .site-header:not(.is-solid) .drop > button:hover {
 }
 .price-card .delay {
   display: inline-flex;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.35;
   width: fit-content;
   background: var(--rose-soft);
   color: var(--rose-deep);
