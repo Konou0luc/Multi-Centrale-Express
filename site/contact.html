@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Multi Centrale Express</title>
+  <meta name="description" content="Contactez Multi Centrale Express à Champs-sur-Marne : téléphone, WhatsApp, email et plan Google Maps." />
+  <link rel="icon" href="images/mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css" />
+</head>
+<body data-page="contact.html">
+<header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/mark.png" alt="Logo Multi Centrale Express" />
+        <span>Multi Centrale Express<small>Import · Export</small></span>
+      </a>
+      <button class="burger" type="button" data-burger aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav" data-nav>
+        <a data-navlink href="index.html">Accueil</a>
+        <a data-navlink href="a-propos.html">À propos</a>
+        <div class="drop">
+          <button type="button" data-drop>Services <i class="chev" aria-hidden="true"></i></button>
+          <div class="drop-panel">
+            <a href="services.html"><strong>Toutes les solutions</strong><span>Ce que nous prenons en charge</span></a>
+            <a href="centrale-achat.html"><strong>Centrale d'achat</strong><span>Sourcing et regroupement</span></a>
+            <a href="colis.html"><strong>Envoi et réception de colis</strong><span>France et Togo</span></a>
+            <a href="groupage.html"><strong>Groupage maritime et aérien</strong><span>Économique ou rapide</span></a>
+          </div>
+        </div>
+        <a data-navlink href="tarifs.html">Tarifs</a>
+        <a data-navlink href="zones.html">Zones</a>
+        <a data-navlink href="avis.html">Avis</a>
+        <a data-navlink href="contact.html">Contact</a>
+        <a class="btn btn-primary nav-cta" href="devis.html">Demander un devis</a>
+      </nav>
+      <a class="btn btn-primary header-cta" href="devis.html">Devis</a>
+    </div>
+  </header>
+<main>
+
+    <section class="page-hero">
+      <div class="media" style="background-image:url('images/paris.jpg')"></div>
+      <div class="content">
+        <p class="crumbs"><a href="index.html">Accueil</a> · Contact</p>
+        <h1>Un numéro, une adresse, une personne.</h1>
+        <p>Kossi Wisdom Konou, dirigeant et fondateur. Écrivez, appelez, ou venez après avoir confirmé le créneau.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container form-grid">
+        <form class="card" data-whatsapp-form data-title="Message — Multi Centrale Express">
+          <h2 style="font-size:1.7rem">Écrire un message</h2>
+          <div class="fields">
+            <div class="field full">
+              <label for="cnom">Nom</label>
+              <input id="cnom" name="Nom" required autocomplete="name" />
+            </div>
+            <div class="field full">
+              <label for="ctel">Téléphone</label>
+              <input id="ctel" data-intl-phone type="tel" required autocomplete="tel" inputmode="tel" placeholder="6 12 34 56 78" />
+              <input type="hidden" name="Téléphone" data-phone-full />
+              <p class="phone-error" data-phone-error hidden></p>
+            </div>
+            <div class="field full">
+              <label for="cmail">Email</label>
+              <input id="cmail" name="Email" type="email" autocomplete="email" />
+            </div>
+            <div class="field full">
+              <label for="cmsg">Message</label>
+              <textarea id="cmsg" name="Message" required placeholder="Votre demande"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Envoyer le message</button>
+          <p class="form-note">Le message arrive par e-mail à wisdomkonou2020@gmail.com, et aussi sur WhatsApp au 07 80 80 76 62.</p>
+          <p class="success" data-success hidden>Envoi en cours.</p>
+        </form>
+        <aside class="side-card">
+          <article class="panel">
+            <div class="contact-line"><div><b>Dirigeant</b><span class="muted">Kossi Wisdom Konou</span></div></div>
+            <div class="contact-line"><div><b>Téléphone</b><a href="tel:+33780807662">+33 7 80 80 76 62</a></div></div>
+            <div class="contact-line"><div><b>Email</b><a href="mailto:wisdomkonou2020@gmail.com">wisdomkonou2020@gmail.com</a></div></div>
+            <div class="contact-line"><div><b>Adresse</b><span class="muted">2 Allée de la Clairière<br />77420 Champs-sur-Marne</span></div></div>
+            <a class="btn btn-wa" href="https://wa.me/33780807662" target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+          </article>
+          <div class="map-wrap">
+            <iframe class="map-frame" title="Google Maps — Multi Centrale Express" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=2%20All%C3%A9e%20de%20la%20Clairi%C3%A8re%2077420%20Champs-sur-Marne&z=16&output=embed"></iframe>
+          </div>
+          <a href="https://maps.app.goo.gl/RPMxjevsX9HYjy7EA" target="_blank" rel="noopener">Itinéraire Google Maps →</a>
+        </aside>
+      </div>
+    </section>
+    
+</main>
+<footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="images/mark.png" alt="" />
+          <span>Multi Centrale Express<small>Import · Export</small></span>
+        </a>
+        <p>Spécialiste de l'import-export, du groupage maritime et aérien, et de la centrale d'achat. Envoi et réception de colis entre la France et le Togo.</p>
+      </div>
+      <div>
+        <h3>Solutions</h3>
+        <a href="centrale-achat.html">Centrale d'achat</a>
+        <a href="colis.html">Colis</a>
+        <a href="groupage.html">Groupage</a>
+        <a href="devis.html">Demander un devis</a>
+      </div>
+      <div>
+        <h3>Maison</h3>
+        <a href="a-propos.html">À propos</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="zones.html">Zones</a>
+        <a href="avis.html">Avis</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><b style="color:#fff">Kossi Wisdom Konou</b><br />Dirigeant et fondateur</p>
+        <p style="margin-top:10px">2 Allée de la Clairière<br />77420 Champs-sur-Marne</p>
+        <a href="tel:+33780807662">07 80 80 76 62</a>
+        <a href="mailto:wisdomkonou2020@gmail.com">wisdomkonou2020@gmail.com</a>
+        <a href="https://maps.app.goo.gl/RPMxjevsX9HYjy7EA" target="_blank" rel="noopener">Voir sur Google Maps</a>
+      </div>
+    </div>
+    <div class="container legal">
+      <span>© 2026 Multi Centrale Express. Tous droits réservés.</span>
+      <span><a href="mentions-legales.html">Mentions légales</a></span>
+    </div>
+  </footer>
+
+  <div class="floats">
+    <a class="float float-call" href="tel:+33780807662" aria-label="Appeler Multi Centrale Express">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8c.4-.4 1-.5 1.5-.3l2.2.9c.5.2.8.7.8 1.2l-.3 2.4a1.2 1.2 0 0 1-.7 1l-1.3.6a12.5 12.5 0 0 0 6.2 6.2l.6-1.3c.2-.4.6-.7 1-.7l2.4-.3c.5 0 1 .3 1.2.8l.9 2.2c.2.5 0 1.1-.3 1.5l-1.4 1.4c-.4.4-1 .6-1.6.5C10.8 20.7 3.3 13.2 2.4 6.8c-.1-.6.1-1.2.5-1.6z"/></svg>
+    </a>
+    <a class="float float-wa" href="https://wa.me/33780807662" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 3C7.3 3 3.46 6.78 3.46 11.45c0 1.48.4 2.92 1.15 4.19L3.4 21l5.5-1.18a8.7 8.7 0 0 0 4.14 1.05h.01c4.74 0 8.58-3.78 8.58-8.45C21.63 6.78 16.78 3 12.04 3zm4.9 11.93c-.2.58-1.18 1.1-1.64 1.14-.42.04-.96.06-1.55-.1-.36-.1-.82-.24-1.41-.47-2.48-.97-4.1-3.36-4.22-3.52-.12-.16-1-1.33-1-2.54s.63-1.8.86-2.05c.22-.24.48-.3.64-.3h.46c.15 0 .34-.05.53.4.2.48.68 1.66.74 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.24-.1.46.14.22.62 1.02 1.33 1.65.92.82 1.7 1.08 1.94 1.2.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.14 1.16z"/></svg>
+    </a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInputWithUtils.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
