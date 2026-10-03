@@ -162,6 +162,7 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
     }
     if (fields.Email) fields.email = fields.Email;
     const wa = `https://wa.me/33780807662?text=${encodeURIComponent(lines.join("\n"))}`;
+    const waWindow = window.open(wa, "_blank", "noopener");
     if (button) button.disabled = true;
     let emailed = false;
     try {
@@ -172,23 +173,50 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
           _subject: title,
           _template: "box",
           _captcha: "false",
+          _replyto: fields.email || "",
           ...fields,
         }),
       });
-      emailed = response.ok;
+      const payload = await response.json().catch(() => ({}));
+      emailed = response.ok && String(payload.success) === "true";
     } catch (error) {
       emailed = false;
     }
     if (success) {
       success.hidden = false;
+      success.classList.toggle("form-error", !emailed);
+      success.classList.toggle("success", emailed);
       success.textContent = emailed
-        ? "C'est envoyé. Le message part par e-mail à wisdomkonou2020@gmail.com, et WhatsApp s'ouvre avec le même texte pour le téléphone."
-        : "L'e-mail n'a pas pu partir. WhatsApp s'ouvre : envoyez le message pour qu'il arrive au +33 7 80 80 76 62.";
+        ? "C'est envoyé. Le message part par e-mail à wisdomkonou2020@gmail.com, et WhatsApp s'ouvre avec le même texte."
+        : waWindow
+          ? "L'e-mail n'est pas parti. Le message est ouvert sur WhatsApp : envoyez-le pour qu'il arrive au +33 7 80 80 76 62."
+          : "L'e-mail n'est pas parti, et le navigateur a bloqué WhatsApp. Écrivez au +33 7 80 80 76 62.";
     }
-    window.open(wa, "_blank", "noopener");
     if (button) button.disabled = false;
   });
 });
+
+const AVIS_URL = "https://njxggtgzzdmuezncjgjb.supabase.co";
+const AVIS_KEY = "sb_publishable_eySUpVK-TH1SsutGeTt2tA_eucBex-0";
+
+const avisHeaders = () => ({
+  apikey: AVIS_KEY,
+  Authorization: `Bearer ${AVIS_KEY}`,
+  "Content-Type": "application/json",
+});
+
+const avisStoreError = async (response) => {
+  const payload = await response.json().catch(() => ({}));
+  const message = String(payload.message || payload.error || "");
+  if (!AVIS_KEY) return "La clé Publishable Supabase n'est pas encore dans le site.";
+  if (response.status === 401 || /api key/i.test(message)) {
+    return "Supabase refuse la clé. Copie la clé Publishable en entier, avec l'icône copier, pas le texte coupé à l'écran.";
+  }
+  if (/row-level security|permission denied/i.test(message)) {
+    return "La table existe, mais elle refuse l'ajout. Il reste la règle SQL à lancer.";
+  }
+  return "L'avis n'a pas pu être publié.";
+};
 
 const avisList = document.querySelector("[data-avis-list]");
 const avisHome = document.querySelector("[data-avis-home]");
@@ -241,12 +269,14 @@ const paintAvis = (items) => {
   }
 };
 
-if (avisList || avisHome) {
-  fetch("/api/reviews")
+if ((avisList || avisHome) && AVIS_KEY) {
+  fetch(`${AVIS_URL}/rest/v1/avis?select=id,prenom,lieu,note,message,created_at&order=created_at.desc&limit=60`, {
+    headers: avisHeaders(),
+  })
     .then((response) => (response.ok ? response.json() : null))
     .then((data) => {
-      if (!data || !Array.isArray(data.avis)) return;
-      paintAvis(data.avis);
+      if (!Array.isArray(data)) return;
+      paintAvis(data);
     })
     .catch(() => {});
 }
@@ -292,21 +322,40 @@ if (avisForm) {
       publication: avisForm.publication.checked,
       website: avisForm.website.value,
     };
+    if (payload.website) {
+      showStatus("C'est publié. Votre avis est visible sur cette page.", true);
+      avisForm.reset();
+      note = 0;
+      paintStars(0);
+      return;
+    }
+    const prenom = payload.prenom.trim();
+    const lieu = payload.lieu.trim();
+    const message = payload.message.trim();
+    if (prenom.length < 2) {
+      showStatus("Indiquez votre prénom.", false);
+      return;
+    }
+    if (message.length < 12) {
+      showStatus("Le message doit faire au moins quelques mots.", false);
+      return;
+    }
     button.disabled = true;
     try {
-      const response = await fetch("/api/reviews", {
+      const response = await fetch(`${AVIS_URL}/rest/v1/avis`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { ...avisHeaders(), Prefer: "return=representation" },
+        body: JSON.stringify({ prenom, lieu, note, message }),
       });
-      const data = await response.json().catch(() => ({}));
+      const data = await response.json().catch(() => null);
       if (!response.ok) {
-        showStatus(data.error || "L'avis n'a pas pu être publié.", false);
+        showStatus(await avisStoreError(new Response(JSON.stringify(data), { status: response.status })), false);
         button.disabled = false;
         return;
       }
-      if (data.avis) {
-        avisList.prepend(avisCard(data.avis));
+      const saved = Array.isArray(data) ? data[0] : data;
+      if (saved && avisList) {
+        avisList.prepend(avisCard(saved));
         const empty = document.querySelector("[data-avis-empty]");
         if (empty) empty.hidden = true;
       }
