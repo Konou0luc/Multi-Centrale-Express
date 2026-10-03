@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Avis clients | Multi Centrale Express</title>
-  <meta name="description" content="Retours de particuliers et de professionnels sur l'envoi de colis, le groupage maritime et la centrale d'achat Multi Centrale Express." />
+  <meta name="description" content="Laissez un avis après votre envoi ou votre réception. Les retours publiés s'affichent sur cette page." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Multi Centrale Express" />
-  <meta name="theme-color" content="#6d1736" />
+  <meta name="theme-color" content="#1b6b2a" />
   <link rel="canonical" href="https://multi-centrale-express.vercel.app/avis" />
   <link rel="alternate" hreflang="fr" href="https://multi-centrale-express.vercel.app/avis" />
   <link rel="alternate" hreflang="x-default" href="https://multi-centrale-express.vercel.app/avis" />
@@ -15,18 +15,18 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Multi Centrale Express" />
   <meta property="og:title" content="Avis clients | Multi Centrale Express" />
-  <meta property="og:description" content="Retours de particuliers et de professionnels sur l'envoi de colis, le groupage maritime et la centrale d'achat Multi Centrale Express." />
+  <meta property="og:description" content="Laissez un avis après votre envoi ou votre réception. Les retours publiés s'affichent sur cette page." />
   <meta property="og:url" content="https://multi-centrale-express.vercel.app/avis" />
-  <meta property="og:image" content="https://multi-centrale-express.vercel.app/images/parcels.jpg" />
-  <meta property="og:image:alt" content="Colis expédiés par Multi Centrale Express" />
+  <meta property="og:image" content="https://multi-centrale-express.vercel.app/images/arrivee.jpg" />
+  <meta property="og:image:alt" content="Des colis reçus à la porte, le moment où la confiance se vérifie" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Avis clients | Multi Centrale Express" />
-  <meta name="twitter:description" content="Retours de particuliers et de professionnels sur l'envoi de colis, le groupage maritime et la centrale d'achat Multi Centrale Express." />
-  <meta name="twitter:image" content="https://multi-centrale-express.vercel.app/images/parcels.jpg" />
+  <meta name="twitter:description" content="Laissez un avis après votre envoi ou votre réception. Les retours publiés s'affichent sur cette page." />
+  <meta name="twitter:image" content="https://multi-centrale-express.vercel.app/images/arrivee.jpg" />
   <link rel="icon" href="images/mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script type="application/ld+json">
 {
@@ -87,53 +87,68 @@
 <main>
 
     <section class="page-hero">
-      <div class="media" style="background-image:url('images/warehouse.jpg')"></div>
+      <div class="media" style="background-image:url('images/arrivee.jpg');background-position:center 18%"></div>
       <div class="content">
         <p class="crumbs"><a href="index.html">Accueil</a> · Avis</p>
         <h1>La confiance se mesure à l'arrivée.</h1>
-        <p>Ces retours sont des exemples de mise en page. Remplacez-les par les vrais messages de vos clients dès que vous les avez.</p>
+        <p>Le colis est là. Laissez votre retour sur cette page : il s'affiche pour les prochains visiteurs.</p>
       </div>
     </section>
     <section class="section">
+      <div class="container form-grid">
+        <form class="card" data-avis-form>
+          <h2 style="font-size:1.7rem">Laisser un avis</h2>
+          <div class="fields">
+            <div class="field">
+              <label for="avis-prenom">Prénom</label>
+              <input id="avis-prenom" name="prenom" required maxlength="40" autocomplete="given-name" />
+            </div>
+            <div class="field">
+              <label for="avis-lieu">Ville</label>
+              <input id="avis-lieu" name="lieu" maxlength="40" placeholder="Paris, Lomé…" />
+            </div>
+            <div class="field full">
+              <span id="avis-note-label">Note</span>
+              <div class="rate" data-rate role="radiogroup" aria-labelledby="avis-note-label">
+                <button type="button" data-star="1" aria-label="1 étoile">★</button>
+                <button type="button" data-star="2" aria-label="2 étoiles">★</button>
+                <button type="button" data-star="3" aria-label="3 étoiles">★</button>
+                <button type="button" data-star="4" aria-label="4 étoiles">★</button>
+                <button type="button" data-star="5" aria-label="5 étoiles">★</button>
+              </div>
+            </div>
+            <div class="field full">
+              <label for="avis-message">Votre retour</label>
+              <textarea id="avis-message" name="message" required maxlength="600" placeholder="Ce qui s'est passé, du devis jusqu'à l'arrivée."></textarea>
+            </div>
+            <div class="field full">
+              <label class="check-pub">
+                <input type="checkbox" name="publication" required />
+                <span>J'accepte que mon prénom, ma ville et ce message soient publiés sur cette page.</span>
+              </label>
+            </div>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="avis-website">Site</label>
+            <input id="avis-website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <button class="btn btn-primary btn-lg" type="submit">Publier l'avis</button>
+          <p class="form-note">L'avis reste sur le site. Il ne part pas sur WhatsApp.</p>
+          <p class="success" data-avis-status hidden></p>
+        </form>
+        <aside class="side-card">
+          <article class="panel">
+            <p class="eyebrow">Après l'arrivée</p>
+            <h3>Un retour, visible ici.</h3>
+            <p>Le prénom et le message s'affichent dans la liste ci-dessous, pour les personnes qui préparent un envoi.</p>
+          </article>
+        </aside>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
       <div class="container">
-        <p class="notice" style="margin-bottom:22px">Textes illustratifs, pour montrer la page. Ils ne sont pas présentés comme des avis certifiés.</p>
-        <div class="cards-3">
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>« Trois cartons pour la famille à Lomé. On m'a expliqué le maritime simplement, et j'ai su quand c'est parti. »</p>
-            <div class="who"><div class="avatar">AK</div><div><b>Afi K.</b><small>Particulier · Paris</small></div></div>
-          </article>
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>« On a groupé un réassort avec d'autres achats. Un seul interlocuteur pour le sourcing et le conteneur. »</p>
-            <div class="who"><div class="avatar">JM</div><div><b>Jean-Marc D.</b><small>Gérant · Seine-et-Marne</small></div></div>
-          </article>
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>« Une pièce manquante, départ aérien. Réponse WhatsApp dans l'après-midi, colis pris en charge le lendemain. »</p>
-            <div class="who"><div class="avatar">SE</div><div><b>Séna E.</b><small>Atelier · Lomé</small></div></div>
-          </article>
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>« J'avais peur des frais cachés. Le devis tenait sur quelques lignes, et la facture a suivi le devis. »</p>
-            <div class="who"><div class="avatar">ML</div><div><b>Marie L.</b><small>Particulier · Champs-sur-Marne</small></div></div>
-          </article>
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>« Réception d'un envoi venu du Togo, propre, avec un appel quand c'était prêt à enlever. »</p>
-            <div class="who"><div class="avatar">YK</div><div><b>Yao K.</b><small>Famille · Val-de-Marne</small></div></div>
-          </article>
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>« La centrale d'achat nous a évité de commander trop tôt. On a validé les prix, puis tout est parti ensemble. »</p>
-            <div class="who"><div class="avatar">CN</div><div><b>Chantal N.</b><small>Commerce · Lomé</small></div></div>
-          </article>
-        </div>
-        <div class="cta-band" style="margin-top:28px">
-          <h2>Vous avez déjà expédié avec nous ?</h2>
-          <p>Envoyez votre retour par WhatsApp. On l'ajoutera ici, avec votre accord.</p>
-          <a class="btn btn-lg" style="background:#fff;color:#6d1736" href="https://wa.me/33780807662?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis." target="_blank" rel="noopener">Laisser un avis</a>
-        </div>
+        <p class="notice" data-avis-empty>Aucun avis publié pour le moment. Le premier retour s'affichera ici.</p>
+        <div class="cards-3" data-avis-list aria-live="polite"></div>
       </div>
     </section>
     

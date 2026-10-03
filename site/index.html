@@ -7,7 +7,7 @@
   <meta name="description" content="Envoi et réception de colis, avec centrale d'achat. Corridors Togo–France et Lomé–USA. Groupage maritime : 4 semaines vers le Togo, 6 semaines ailleurs." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Multi Centrale Express" />
-  <meta name="theme-color" content="#6d1736" />
+  <meta name="theme-color" content="#1b6b2a" />
   <link rel="canonical" href="https://multi-centrale-express.vercel.app/" />
   <link rel="alternate" hreflang="fr" href="https://multi-centrale-express.vercel.app/" />
   <link rel="alternate" hreflang="x-default" href="https://multi-centrale-express.vercel.app/" />
@@ -26,7 +26,7 @@
   <link rel="icon" href="images/mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script type="application/ld+json">
 {
@@ -125,7 +125,27 @@
 
   <main>
     <section class="hero">
-      <div class="hero-media"></div>
+      <div class="hero-media" data-hero-carousel aria-hidden="true">
+        <div class="hero-slide is-active">
+          <img src="images/warehouse.jpg" alt="" />
+        </div>
+        <div class="hero-slide">
+          <video muted playsinline preload="none" poster="images/warehouse.jpg">
+            <source src="videos/entrepot.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero-slide">
+          <img src="images/boxes.jpg" alt="" />
+        </div>
+        <div class="hero-slide">
+          <video muted playsinline preload="none" poster="images/parcels.jpg">
+            <source src="videos/colis.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero-slide">
+          <img src="images/truck.jpg" alt="" />
+        </div>
+      </div>
       <div class="hero-inner">
         <p class="pill"><i aria-hidden="true">↔</i> Envoi et réception de colis · Centrale d'achat</p>
         <h1>De France à Lomé, on s'occupe de tout.</h1>
@@ -156,7 +176,7 @@
     <section class="section">
       <div class="container split">
         <div class="frame">
-          <img src="images/containers.jpg" alt="Conteneurs colorés prêts pour un départ maritime" />
+          <img class="is-handover" src="images/remise.jpg" alt="Un colis remis en main propre, le bordereau à la main" />
           <div class="frame-card">
             <div class="badge-dot" aria-hidden="true">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9s-1.3 6.2-3.8 9c-2.5-2.8-3.8-5.8-3.8-9s1.3-6.2 3.8-9z"/></svg>
@@ -269,14 +289,22 @@
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">En mouvement</p>
-          <h2>Le fret, déjà en route.</h2>
+          <h2>La mer et l'air, déjà en route.</h2>
         </div>
-        <figure class="film">
-          <video autoplay muted loop playsinline poster="images/plane.jpg">
-            <source src="videos/air.webm" type="video/webm" />
-          </video>
-          <figcaption>Chargement cargo, fret aérien</figcaption>
-        </figure>
+        <div class="films">
+          <figure class="film">
+            <video autoplay muted loop playsinline poster="images/hero.jpg">
+              <source src="videos/maritime.mp4" type="video/mp4" />
+            </video>
+            <figcaption>Porte-conteneurs, groupage maritime</figcaption>
+          </figure>
+          <figure class="film">
+            <video autoplay muted loop playsinline poster="images/plane.jpg">
+              <source src="videos/air.webm" type="video/webm" />
+            </video>
+            <figcaption>Chargement cargo, fret aérien</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -334,9 +362,9 @@
         <div class="section-head">
           <p class="eyebrow">Avis clients</p>
           <h2>Ce que l'on retient après un envoi.</h2>
-          <p class="lead">Extraits illustratifs, en attendant vos vrais retours. On les remplacera dès que vous les aurez.</p>
+          <p class="lead" data-avis-intro>Extraits illustratifs, en attendant les avis laissés sur la page Avis.</p>
         </div>
-        <div class="quotes">
+        <div class="quotes" data-avis-home>
           <article class="quote">
             <div class="stars" aria-label="5 étoiles">★★★★★</div>
             <p>« J'ai envoyé les cartons de la famille sans avoir à comprendre le fret. On m'a dit le prix, le délai, et le colis est arrivé à Lomé. »</p>
@@ -360,11 +388,11 @@
     <section class="section">
       <div class="container">
         <div class="cta-band">
-          <p class="eyebrow" style="color:#ffd6e6">Prêt à expédier</p>
+          <p class="eyebrow" style="color:#d9f5c4">Prêt à expédier</p>
           <h2>Dites-nous ce qui doit partir.</h2>
           <p>Un devis, un achat à regrouper, un colis à recevoir. Kossi Wisdom Konou et l'équipe vous répondent directement.</p>
           <div class="cta-actions">
-            <a class="btn btn-lg" style="background:#fff;color:#6d1736" href="devis.html">Demander un devis</a>
+            <a class="btn btn-lg" style="background:#fff;color:#1b6b2a" href="devis.html">Demander un devis</a>
             <a class="btn btn-ghost btn-lg" href="tel:+33780807662">Appeler le +33 7 80 80 76 62</a>
           </div>
         </div>
