@@ -26,7 +26,7 @@
   <link rel="icon" href="images/mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&family=Unbounded:wght@500..800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script type="application/ld+json">
 {
@@ -104,6 +104,7 @@
       <nav class="nav" id="nav" data-nav>
         <a data-navlink href="index.html">Accueil</a>
         <a data-navlink href="a-propos.html">À propos</a>
+        <a class="nav-buy" data-navlink href="centrale-achat.html">Centrale d'achat</a>
         <div class="drop">
           <button type="button" data-drop>Services <i class="chev" aria-hidden="true"></i></button>
           <div class="drop-panel">
@@ -151,7 +152,8 @@
         <h1>De France à Lomé, on s'occupe de tout.</h1>
         <p class="sub">Dès l'arrivée, c'est clair : on envoie vos colis, on les reçoit, et la centrale d'achat s'en occupe. Deux corridors, dans les deux sens : Togo – France et Lomé – USA.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="devis.html">Demander un devis</a>
+          <a class="btn btn-primary btn-lg" href="centrale-achat.html">Centrale d'achat</a>
+          <a class="btn btn-ghost btn-lg" href="devis.html">Demander un devis</a>
           <a class="btn btn-ghost btn-lg" href="https://wa.me/33780807662" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
         </div>
       </div>
@@ -161,10 +163,26 @@
       <div class="stats">
         <article><strong>Togo ↔ France</strong><span>Envoi et réception de colis, dans les deux sens.</span></article>
         <article><strong>Lomé ↔ USA</strong><span>Le second corridor colis, dans les deux sens.</span></article>
-        <article><strong>Centrale d'achat</strong><span>Togo, et aussi Bénin et Côte d'Ivoire.</span></article>
+        <a class="stat-buy" href="centrale-achat.html"><strong>Centrale d'achat</strong><span>Togo, Bénin et Côte d'Ivoire. On achète, on contrôle, on expédie.</span></a>
         <article><strong>Groupage maritime</strong><span>4 semaines France–Togo, 6 semaines pour les autres continents.</span></article>
       </div>
     </div>
+
+    <section class="buy-band">
+      <div class="container buy-band-inner">
+        <div>
+          <p class="eyebrow">Mis en avant</p>
+          <h2>La centrale d'achat trouve, groupe et expédie.</h2>
+          <p>Pour le Togo, le Bénin et la Côte d'Ivoire. Vous décrivez le besoin, vous validez le prix, rien n'est commandé sans votre accord. Ensuite, un seul départ.</p>
+          <a class="btn btn-primary btn-lg" href="centrale-achat.html">Voir la centrale d'achat</a>
+        </div>
+        <ul class="buy-places">
+          <li><b>Togo</b><span>Sourcing et regroupement</span></li>
+          <li><b>Bénin</b><span>Uniquement par la centrale d'achat</span></li>
+          <li><b>Côte d'Ivoire</b><span>Uniquement par la centrale d'achat</span></li>
+        </ul>
+      </div>
+    </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
@@ -206,8 +224,8 @@
           <h2>Trois métiers, une même exigence.</h2>
           <p class="lead">Choisissez le rythme et le budget. Nous construisons l'itinéraire qui correspond à votre envoi.</p>
         </div>
-        <div class="cards-3">
-          <a class="service-card" href="centrale-achat.html">
+        <div class="solutions">
+          <a class="service-card is-lead" href="centrale-achat.html">
             <div class="photo"><img src="images/boxes.jpg" alt="Préparation de marchandises en entrepôt" /></div>
             <div class="body">
               <span class="tag">01 — Achat</span>
@@ -216,6 +234,7 @@
               <span class="more">Voir la centrale d'achat →</span>
             </div>
           </a>
+          <div class="solutions-side">
           <a class="service-card" href="colis.html">
             <div class="photo"><img src="images/parcels.jpg" alt="Colis préparés pour l'expédition" /></div>
             <div class="body">
@@ -234,6 +253,7 @@
               <span class="more">Choisir un groupage →</span>
             </div>
           </a>
+          </div>
         </div>
       </div>
     </section>

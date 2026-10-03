@@ -109,6 +109,23 @@ const initPhoneField = async () => {
 
 const phoneReady = initPhoneField();
 
+const toast = (message, ok = false) => {
+  let stack = document.querySelector("[data-toaster]");
+  if (!stack) {
+    stack = document.createElement("div");
+    stack.className = "toaster";
+    stack.dataset.toaster = "";
+    stack.setAttribute("aria-live", "polite");
+    document.body.append(stack);
+  }
+  const item = document.createElement("p");
+  item.className = ok ? "toast is-ok" : "toast is-bad";
+  item.setAttribute("role", ok ? "status" : "alert");
+  item.textContent = message;
+  stack.append(item);
+  window.setTimeout(() => item.remove(), 5200);
+};
+
 const phoneMessage = (iti, input) => {
   if (!input.value.trim()) return "Indiquez votre numéro de téléphone.";
   if (iti.isValidNumber()) return "";
@@ -134,10 +151,8 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
       if (message) {
         phoneInput.classList.add("is-invalid");
         phoneInput.setAttribute("aria-invalid", "true");
-        if (error) {
-          error.hidden = false;
-          error.textContent = message;
-        }
+        if (error) error.hidden = true;
+        toast(message);
         phoneInput.focus();
         return;
       }
@@ -148,7 +163,6 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
       if (full) full.value = iti.getNumber();
     }
     const button = form.querySelector("[type=submit]");
-    const success = form.querySelector("[data-success]");
     const data = new FormData(form);
     const title = form.dataset.title || "Demande Multi Centrale Express";
     const fields = {};
@@ -182,16 +196,14 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
     } catch (error) {
       emailed = false;
     }
-    if (success) {
-      success.hidden = false;
-      success.classList.toggle("form-error", !emailed);
-      success.classList.toggle("success", emailed);
-      success.textContent = emailed
+    toast(
+      emailed
         ? "C'est envoyé. Le message part par e-mail à wisdomkonou2020@gmail.com, et WhatsApp s'ouvre avec le même texte."
         : waWindow
           ? "L'e-mail n'est pas parti. Le message est ouvert sur WhatsApp : envoyez-le pour qu'il arrive au +33 7 80 80 76 62."
-          : "L'e-mail n'est pas parti, et le navigateur a bloqué WhatsApp. Écrivez au +33 7 80 80 76 62.";
-    }
+          : "L'e-mail n'est pas parti, et le navigateur a bloqué WhatsApp. Écrivez au +33 7 80 80 76 62.",
+      emailed
+    );
     if (button) button.disabled = false;
   });
 });
@@ -302,14 +314,8 @@ if (avisForm) {
   avisForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!avisForm.reportValidity()) return;
-    const status = avisForm.querySelector("[data-avis-status]");
     const button = avisForm.querySelector("[type=submit]");
-    const showStatus = (message, ok) => {
-      status.hidden = false;
-      status.textContent = message;
-      status.classList.toggle("form-error", !ok);
-      status.classList.toggle("success", ok);
-    };
+    const showStatus = (message, ok) => toast(message, ok);
     if (!note) {
       showStatus("Choisissez une note.", false);
       return;
