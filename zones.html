@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Avis clients | Multi Centrale Express</title>
-  <meta name="description" content="Laissez un avis après votre envoi ou votre réception. Les retours publiés s'affichent sur cette page." />
+  <title>Zones Togo–France et Lomé–USA | Multi Centrale Express</title>
+  <meta name="description" content="Deux corridors colis, dans les deux sens : Togo–France et Lomé–USA. La centrale d'achat couvre aussi le Bénin et la Côte d'Ivoire." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Multi Centrale Express" />
   <meta name="theme-color" content="#1b6b2a" />
-  <link rel="canonical" href="https://multi-centrale-express.vercel.app/avis" />
-  <link rel="alternate" hreflang="fr" href="https://multi-centrale-express.vercel.app/avis" />
-  <link rel="alternate" hreflang="x-default" href="https://multi-centrale-express.vercel.app/avis" />
+  <link rel="canonical" href="https://multicentraleexpress.com/zones" />
+  <link rel="alternate" hreflang="fr" href="https://multicentraleexpress.com/zones" />
+  <link rel="alternate" hreflang="x-default" href="https://multicentraleexpress.com/zones" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Multi Centrale Express" />
-  <meta property="og:title" content="Avis clients | Multi Centrale Express" />
-  <meta property="og:description" content="Laissez un avis après votre envoi ou votre réception. Les retours publiés s'affichent sur cette page." />
-  <meta property="og:url" content="https://multi-centrale-express.vercel.app/avis" />
-  <meta property="og:image" content="https://multi-centrale-express.vercel.app/images/arrivee.jpg" />
-  <meta property="og:image:alt" content="Des colis reçus à la porte, le moment où la confiance se vérifie" />
+  <meta property="og:title" content="Zones Togo–France et Lomé–USA | Multi Centrale Express" />
+  <meta property="og:description" content="Deux corridors colis, dans les deux sens : Togo–France et Lomé–USA. La centrale d'achat couvre aussi le Bénin et la Côte d'Ivoire." />
+  <meta property="og:url" content="https://multicentraleexpress.com/zones" />
+  <meta property="og:image" content="https://multicentraleexpress.com/images/plane.jpg" />
+  <meta property="og:image:alt" content="Corridor Lomé–USA et Togo–France" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Avis clients | Multi Centrale Express" />
-  <meta name="twitter:description" content="Laissez un avis après votre envoi ou votre réception. Les retours publiés s'affichent sur cette page." />
-  <meta name="twitter:image" content="https://multi-centrale-express.vercel.app/images/arrivee.jpg" />
+  <meta name="twitter:title" content="Zones Togo–France et Lomé–USA | Multi Centrale Express" />
+  <meta name="twitter:description" content="Deux corridors colis, dans les deux sens : Togo–France et Lomé–USA. La centrale d'achat couvre aussi le Bénin et la Côte d'Ivoire." />
+  <meta name="twitter:image" content="https://multicentraleexpress.com/images/plane.jpg" />
   <link rel="icon" href="images/mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,13 +39,13 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Accueil",
-          "item": "https://multi-centrale-express.vercel.app/"
+          "item": "https://multicentraleexpress.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Avis",
-          "item": "https://multi-centrale-express.vercel.app/avis"
+          "name": "Zones",
+          "item": "https://multicentraleexpress.com/zones"
         }
       ]
     }
@@ -53,7 +53,7 @@
 }
   </script>
 </head>
-<body data-page="avis.html">
+<body data-page="zones.html">
 <header class="site-header" data-header>
     <div class="header-inner">
       <a class="brand" href="index.html">
@@ -88,67 +88,60 @@
 <main>
 
     <section class="page-hero">
-      <div class="media" style="background-image:url('images/arrivee.jpg');background-position:center 18%"></div>
+      <div class="media" style="background-image:url('images/paris.jpg')"></div>
       <div class="content">
-        <p class="crumbs"><a href="index.html">Accueil</a> · Avis</p>
-        <h1>La confiance se mesure à l'arrivée.</h1>
-        <p>Le colis est là. Laissez votre retour sur cette page : il s'affiche pour les prochains visiteurs.</p>
+        <p class="crumbs"><a href="index.html">Accueil</a> · Zones</p>
+        <h1>Deux corridors : Togo – France et Lomé – USA.</h1>
+        <p>Les colis, c'est uniquement ça, dans les deux sens. Le Bénin et la Côte d'Ivoire relèvent de la centrale d'achat.</p>
       </div>
     </section>
     <section class="section">
-      <div class="container form-grid">
-        <form class="card" data-avis-form>
-          <h2 style="font-size:1.7rem">Laisser un avis</h2>
-          <div class="fields">
-            <div class="field">
-              <label for="avis-prenom">Prénom</label>
-              <input id="avis-prenom" name="prenom" required maxlength="40" autocomplete="given-name" />
-            </div>
-            <div class="field">
-              <label for="avis-lieu">Ville</label>
-              <input id="avis-lieu" name="lieu" maxlength="40" placeholder="Paris, Lomé…" />
-            </div>
-            <div class="field full">
-              <span id="avis-note-label">Note</span>
-              <div class="rate" data-rate role="radiogroup" aria-labelledby="avis-note-label">
-                <button type="button" data-star="1" aria-label="1 étoile">★</button>
-                <button type="button" data-star="2" aria-label="2 étoiles">★</button>
-                <button type="button" data-star="3" aria-label="3 étoiles">★</button>
-                <button type="button" data-star="4" aria-label="4 étoiles">★</button>
-                <button type="button" data-star="5" aria-label="5 étoiles">★</button>
-              </div>
-            </div>
-            <div class="field full">
-              <label for="avis-message">Votre retour</label>
-              <textarea id="avis-message" name="message" required maxlength="600" placeholder="Ce qui s'est passé, du devis jusqu'à l'arrivée."></textarea>
-            </div>
-            <div class="field full">
-              <label class="check-pub">
-                <input type="checkbox" name="publication" required />
-                <span>J'accepte que mon prénom, ma ville et ce message soient publiés sur cette page.</span>
-              </label>
-            </div>
+      <div class="container zone-grid">
+        <article class="zone">
+          <img src="images/paris.jpg" alt="Corridor Togo – France" />
+          <div class="shade"></div>
+          <div class="zbody">
+            <p class="eyebrow" style="color:#fff">Corridor colis</p>
+            <h3>Togo – France</h3>
+            <p>Envoi de la France vers Lomé, et réception du Togo vers la France. Hub à Champs-sur-Marne. Groupage maritime : 4 semaines.</p>
+            <div class="chips"><span>France → Lomé</span><span>Lomé → France</span><span>4 semaines</span></div>
           </div>
-          <div class="hp" aria-hidden="true">
-            <label for="avis-website">Site</label>
-            <input id="avis-website" name="website" tabindex="-1" autocomplete="off" />
+        </article>
+        <article class="zone">
+          <img src="images/plane.jpg" alt="Corridor Lomé – USA" />
+          <div class="shade"></div>
+          <div class="zbody">
+            <p class="eyebrow" style="color:#fff">Corridor colis</p>
+            <h3>Lomé – USA</h3>
+            <p>Envoi et réception entre Lomé et les États-Unis, dans les deux sens. Groupage maritime : 6 semaines, comme pour les autres continents hors France–Togo.</p>
+            <div class="chips"><span>Lomé → USA</span><span>USA → Lomé</span><span>6 semaines</span></div>
           </div>
-          <button class="btn btn-primary btn-lg" type="submit">Publier l'avis</button>
-          <p class="form-note">L'avis reste sur le site. Il ne part pas sur WhatsApp.</p>
-        </form>
-        <aside class="side-card">
-          <article class="panel">
-            <p class="eyebrow">Après l'arrivée</p>
-            <h3>Un retour, visible ici.</h3>
-            <p>Le prénom et le message s'affichent dans la liste ci-dessous, pour les personnes qui préparent un envoi.</p>
-          </article>
-        </aside>
+        </article>
       </div>
     </section>
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <p class="notice" data-avis-empty>Aucun avis publié pour le moment. Le premier retour s'affichera ici.</p>
-        <div class="cards-3" data-avis-list aria-live="polite"></div>
+    <section class="section bg-warm">
+      <div class="container split">
+        <div class="copy-stack">
+          <p class="eyebrow">Centrale d'achat</p>
+          <h2>Bénin et Côte d'Ivoire, via la centrale d'achat.</h2>
+          <p class="lead">Ces deux pays ne sont pas des corridors colis. On y intervient par la centrale d'achat : sourcing, regroupement, puis expédition.</p>
+          <p class="eyebrow">Le siège</p>
+          <h2>2 Allée de la Clairière, Champs-sur-Marne.</h2>
+          <p class="lead">C'est l'adresse de l'entreprise. Pour une dépose, appelez avant de vous déplacer : on vous confirme le créneau.</p>
+          <ul class="check-list">
+            <li>Kossi Wisdom Konou, dirigeant et fondateur</li>
+            <li>+33 7 80 80 76 62 (France)</li>
+            <li>+228 70 69 39 84 (Togo)</li>
+            <li>wisdomkonou2020@gmail.com</li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="https://maps.app.goo.gl/RPMxjevsX9HYjy7EA" target="_blank" rel="noopener">Ouvrir Google Maps</a>
+            <a class="btn btn-line" href="contact.html">Page contact</a>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe class="map-frame" style="height:420px" title="Carte Multi Centrale Express à Champs-sur-Marne" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=2%20All%C3%A9e%20de%20la%20Clairi%C3%A8re%2077420%20Champs-sur-Marne&z=16&output=embed"></iframe>
+        </div>
       </div>
     </section>
     

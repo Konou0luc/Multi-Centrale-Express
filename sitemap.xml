@@ -2,57 +2,57 @@
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://multi-centrale-express.vercel.app/</loc>
+    <loc>https://multicentraleexpress.com/</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/services</loc>
+    <loc>https://multicentraleexpress.com/services</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/centrale-achat</loc>
+    <loc>https://multicentraleexpress.com/centrale-achat</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/colis</loc>
+    <loc>https://multicentraleexpress.com/colis</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/groupage</loc>
+    <loc>https://multicentraleexpress.com/groupage</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/tarifs</loc>
+    <loc>https://multicentraleexpress.com/tarifs</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/zones</loc>
+    <loc>https://multicentraleexpress.com/zones</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/avis</loc>
+    <loc>https://multicentraleexpress.com/avis</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/a-propos</loc>
+    <loc>https://multicentraleexpress.com/a-propos</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/contact</loc>
+    <loc>https://multicentraleexpress.com/contact</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://multi-centrale-express.vercel.app/devis</loc>
+    <loc>https://multicentraleexpress.com/devis</loc>
     <lastmod>2026-10-02</lastmod>
     <priority>0.8</priority>
   </url>

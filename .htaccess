@@ -1,0 +1,87 @@
+# ---------------------------------------------------------------------
+# Multi Centrale Express - Configuration Apache / LiteSpeed (Hostinger)
+# ---------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # 1) Forcer le HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ https://multicentraleexpress.com/$1 [R=301,L]
+
+    # 2) Forcer le domaine sans "www" (une seule forme canonique).
+    #    Si vous preferez garder "www", commentez ces 2 lignes.
+    RewriteCond %{HTTP_HOST} ^www\.multicentraleexpress\.com$ [NC]
+    RewriteRule ^(.*)$ https://multicentraleexpress.com/$1 [R=301,L]
+
+    # 3) Redirection .html -> URL propre (ex: /services.html -> /services)
+    #    Basee sur THE_REQUEST : evite les boucles infinies.
+    #    On PROTEGE le fichier de verification Google (doit rester en .html).
+    RewriteCond %{REQUEST_URI} !^/google9b847a1091c7f641\.html$
+    RewriteCond %{THE_REQUEST} \s/+(.*?)\.html[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # 4) Reecriture interne : /services -> /services.html
+    #    Sert le bon fichier sans changer l'URL affichee.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>
+
+# 5) Page d'accueil par defaut
+DirectoryIndex index.html
+
+# 6) Encodage par defaut
+AddDefaultCharset UTF-8
+
+# 7) Types MIME (videos et fichiers parfois mal servis par defaut)
+<IfModule mod_mime.c>
+    AddType video/mp4 .mp4
+    AddType video/webm .webm
+    AddType application/json .json
+    AddType text/xml .xml
+    AddType image/svg+xml .svg
+    AddType font/woff2 .woff2
+</IfModule>
+
+# 8) Compression Gzip / Brotli
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE application/xml application/rss+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 9) Cache navigateur pour les statiques (equivalent Vercel max-age=86400)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 day"
+    ExpiresByType application/javascript "access plus 1 day"
+    ExpiresByType image/jpeg "access plus 1 day"
+    ExpiresByType image/png "access plus 1 day"
+    ExpiresByType image/webp "access plus 1 day"
+    ExpiresByType image/svg+xml "access plus 1 day"
+    ExpiresByType image/x-icon "access plus 1 day"
+    ExpiresByType video/mp4 "access plus 1 day"
+    ExpiresByType video/webm "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|webm|woff2)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+    # Sitemap et donnees : jamais mis en cache
+    <FilesMatch "\.(json|xml)$">
+        Header set Cache-Control "no-store"
+    </FilesMatch>
+</IfModule>
+
+# 10) Protection : interdire l'acces aux fichiers caches (fichiers commencant par un point)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# 11) Page d'erreur 404 personnalisee
+ErrorDocument 404 /index.html
+
