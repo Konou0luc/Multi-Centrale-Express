@@ -1,4 +1,12 @@
 .vercel
+.env
+.env.*
+!.env.example
+Motion Design/
+images/
+videos/
+site/images/
+site/videos/
 *.docx
 *.DOCX
 CAHIER DE CHARGE MULTI CENTRALE EXPRESS SITE INTERNET.DOCX

@@ -180,7 +180,7 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
     if (button) button.disabled = true;
     let emailed = false;
     try {
-      const response = await fetch("https://formsubmit.co/ajax/wisdomkonou2020@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/contact@multicentraleexpress.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -198,7 +198,7 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
     }
     toast(
       emailed
-        ? "C'est envoyé. Le message part par e-mail à wisdomkonou2020@gmail.com, et WhatsApp s'ouvre avec le même texte."
+        ? "C'est envoyé. Le message part par e-mail à contact@multicentraleexpress.com, et WhatsApp s'ouvre avec le même texte."
         : waWindow
           ? "L'e-mail n'est pas parti. Le message est ouvert sur WhatsApp : envoyez-le pour qu'il arrive au +33 7 80 80 76 62."
           : "L'e-mail n'est pas parti, et le navigateur a bloqué WhatsApp. Écrivez au +33 7 80 80 76 62.",
