@@ -139,6 +139,23 @@ if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   });
 }
 
+const showFormDone = (form) => {
+  form.hidden = true;
+  let done = form.parentElement.querySelector("[data-form-done]");
+  if (!done) {
+    done = document.createElement("div");
+    done.className = "card form-done";
+    done.dataset.formDone = "";
+    form.after(done);
+  }
+  done.hidden = false;
+  done.innerHTML =
+    '<p class="eyebrow">Demande envoyée</p>' +
+    "<h2>C'est bien parti.</h2>" +
+    "<p>Votre message est arrivé sur <b>info@multicentraleexpress.com</b>. L'équipe vous répond au numéro indiqué. Restez sur cette page : aucun autre onglet ne s'ouvre.</p>";
+  done.scrollIntoView({ behavior: "smooth", block: "center" });
+};
+
 document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -163,48 +180,47 @@ document.querySelectorAll("[data-whatsapp-form]").forEach((form) => {
       if (full) full.value = iti.getNumber();
     }
     const button = form.querySelector("[type=submit]");
+    const original = button ? button.textContent : "";
     const data = new FormData(form);
     const title = form.dataset.title || "Demande Multi Centrale Express";
     const fields = {};
-    const lines = [title, ""];
     for (const [key, value] of data.entries()) {
       if (String(key).startsWith("_")) continue;
       const text = String(value).trim();
       if (!text) continue;
       fields[key] = text;
-      lines.push(`${key} : ${text}`);
     }
     if (fields.Email) fields.email = fields.Email;
-    const wa = `https://wa.me/33780807662?text=${encodeURIComponent(lines.join("\n"))}`;
-    const waWindow = window.open(wa, "_blank", "noopener");
-    if (button) button.disabled = true;
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Envoi en cours…";
+    }
     let emailed = false;
     try {
-      const response = await fetch("https://formsubmit.co/ajax/info@multicentraleexpress.com", {
+      const response = await fetch("/send-mail.php", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           _subject: title,
-          _template: "box",
-          _captcha: "false",
-          _replyto: fields.email || "",
+          _gotcha: String(data.get("_gotcha") || ""),
           ...fields,
         }),
       });
       const payload = await response.json().catch(() => ({}));
-      emailed = response.ok && String(payload.success) === "true";
+      emailed = response.ok && payload.ok === true;
     } catch (error) {
       emailed = false;
     }
-    toast(
-      emailed
-        ? "C'est envoyé. Le message part par e-mail à info@multicentraleexpress.com, et WhatsApp s'ouvre avec le même texte."
-        : waWindow
-          ? "L'e-mail n'est pas parti. Le message est ouvert sur WhatsApp : envoyez-le pour qu'il arrive au +33 7 80 80 76 62."
-          : "L'e-mail n'est pas parti, et le navigateur a bloqué WhatsApp. Écrivez au +33 7 80 80 76 62.",
-      emailed
-    );
-    if (button) button.disabled = false;
+    if (emailed) {
+      showFormDone(form);
+      toast("C'est envoyé. Le message est arrivé sur info@multicentraleexpress.com.", true);
+      return;
+    }
+    toast("L'e-mail n'est pas parti. Écrivez à info@multicentraleexpress.com ou au +33 7 80 80 76 62.");
+    if (button) {
+      button.disabled = false;
+      button.textContent = original;
+    }
   });
 });
 

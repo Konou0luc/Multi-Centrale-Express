@@ -71,8 +71,8 @@ AddDefaultCharset UTF-8
     <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|webm|woff2)$">
         Header set Cache-Control "public, max-age=86400"
     </FilesMatch>
-    # Sitemap et donnees : jamais mis en cache
-    <FilesMatch "\.(json|xml)$">
+    # Sitemap, donnees et envoi de formulaire : jamais mis en cache
+    <FilesMatch "\.(json|xml|php)$">
         Header set Cache-Control "no-store"
     </FilesMatch>
 </IfModule>

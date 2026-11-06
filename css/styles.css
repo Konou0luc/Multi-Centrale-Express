@@ -919,6 +919,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--rose); box-shado
 .iti input.is-invalid { border-color: #9b1c3c; box-shadow: 0 0 0 4px rgba(155, 28, 60, 0.12); }
 .phone-error { color: #9b1c3c; font-size: 0.84rem; font-weight: 650; margin: 0; }
 .form-note { color: var(--muted); font-size: 0.88rem; }
+.hp { position: absolute; left: -9999px; height: 0; width: 0; overflow: hidden; }
 .success {
   background: #eefbf3;
   color: #146c36;
@@ -926,6 +927,13 @@ input:focus, select:focus, textarea:focus { border-color: var(--rose); box-shado
   padding: 14px 16px;
   font-weight: 650;
 }
+.form-done {
+  background: #eefbf3;
+  border: 1px solid #b7e4c7;
+  padding: 28px 24px;
+}
+.form-done h2 { margin: 8px 0 10px; color: #146c36; }
+.form-done p { margin: 0; color: var(--ink); }
 .side-card { display: grid; gap: 14px; }
 .contact-line {
   display: flex;
